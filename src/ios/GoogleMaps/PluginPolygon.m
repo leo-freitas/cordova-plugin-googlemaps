@@ -68,7 +68,7 @@
         [mutablePath addCoordinate:CLLocationCoordinate2DMake([[latLng objectForKey:@"lat"] doubleValue], [[latLng objectForKey:@"lng"] doubleValue])];
      }
      @catch (NSException * exception) {
-       NSLog(@"Avoided bad latlng")
+       NSLog(@"Avoided bad latlng");
      }
      @finally { }
   }
