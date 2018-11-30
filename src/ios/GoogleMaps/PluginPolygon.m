@@ -64,7 +64,13 @@
   NSDictionary *latLng;
   for (i = 0; i < points.count; i++) {
       latLng = [points objectAtIndex:i];
-      [mutablePath addCoordinate:CLLocationCoordinate2DMake([[latLng objectForKey:@"lat"] doubleValue], [[latLng objectForKey:@"lng"] doubleValue])];
+      @try {
+        [mutablePath addCoordinate:CLLocationCoordinate2DMake([[latLng objectForKey:@"lat"] doubleValue], [[latLng objectForKey:@"lng"] doubleValue])];
+     }
+     @catch (NSException * exception) {
+       NSLog(@"Avoided bad latlng")
+     }
+     @finally { }
   }
 
   // Create paths of the hole property if specified.
